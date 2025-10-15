@@ -71,8 +71,8 @@ docker run -p 8000:8000 diabetes:v0.2
 #### Pull the prebuilt image:
 
 ```bash
-docker pull ghcr.io/<org>/<repo>:v0.2
-docker run -p 8000:8000 ghcr.io/<org>/<repo>:v0.2
+docker pull ghcr.io/0x00a0/diabetes-triage-ml:v0.2
+docker run -p 8000:8000 ghcr.io/0x00a0/diabetes-triage-ml:v0.2
 ```
 
 ---
