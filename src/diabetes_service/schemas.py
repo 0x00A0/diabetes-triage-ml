@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field
 
+
 class Features(BaseModel):
     age: float = Field(...)
     sex: float = Field(...)
@@ -11,6 +12,7 @@ class Features(BaseModel):
     s4: float = Field(...)
     s5: float = Field(...)
     s6: float = Field(...)
+
 
 class Prediction(BaseModel):
     prediction: float
