@@ -7,9 +7,9 @@
 **Results**
 | Metric | v0.1 | v0.2 | Δ |
 |--------|------|------|---|
-| RMSE |  56.9 | 54.7 | ↓ 3.9% |
-| Precision | — | 0.61 | — |
-| Recall | — | 0.59 | — |
+| RMSE |  2900 | 2892 | ↓ ~0.28% |
+| Precision | — | 0.675 | — |
+| Recall | — | 0.71 | — |
 
 **Rationale**
 Ridge regularization reduces overfitting and yields slightly lower RMSE on held-out data.  
