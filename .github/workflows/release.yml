@@ -7,8 +7,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME_LOWER: ${{ toLower(github.repository) }}
-
+  IMAGE_NAME: ${{ github.repository }}
 
 
 jobs:
@@ -24,6 +23,14 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+
+      - name: Build image
+        run: |
+          IMAGE_NAME_LOWER=$(echo "${GITHUB_REPOSITORY}" | tr '[:upper:]' '[:lower:]')
+          echo "IMAGE_NAME_LOWER=$IMAGE_NAME_LOWER" >> $GITHUB_ENV
+          echo "${GITHUB_REF_NAME}" > VERSION
+          docker build -t ghcr.io/${IMAGE_NAME_LOWER}:${GITHUB_REF_NAME} .
+
 
       - name: Install deps
         run: |
