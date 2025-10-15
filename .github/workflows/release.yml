@@ -61,13 +61,11 @@ jobs:
       - name: Push image
         run: docker push $REGISTRY/${IMAGE_NAME_LOWER}:${GITHUB_REF_NAME}
 
-
       - name: Read metrics
         id: metrics
         run: |
-          echo 'json<<EOF' >> "$GITHUB_OUTPUT"
-          cat models/metrics_${GITHUB_REF_NAME}.json >> "$GITHUB_OUTPUT"
-          echo 'EOF' >> "$GITHUB_OUTPUT"
+          JSON=$(jq -c . models/metrics_${GITHUB_REF_NAME}.json)
+          echo "json=$JSON" >> "$GITHUB_OUTPUT"
 
 
       - name: Create GitHub Release
