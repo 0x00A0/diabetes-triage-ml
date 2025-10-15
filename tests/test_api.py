@@ -42,6 +42,8 @@ def test_api_smoke():
         )
         assert pr.status_code == 200
         body = pr.json()
-        assert "prediction" in body and isinstance(body["prediction"], (int, float))
+        assert "prediction" in body and isinstance(
+            body["prediction"], (int, float)
+        )
     finally:
         proc.terminate()
